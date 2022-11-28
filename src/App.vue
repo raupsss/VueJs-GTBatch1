@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <NavbarComponent></NavbarComponent>
+    <BreadcrumbComponent></BreadcrumbComponent>
+    <GalleryComponent></GalleryComponent>
+    <SliderComponent></SliderComponent>
+    <FooterComponent></FooterComponent>
+    <CopyrightComponent></CopyrightComponent>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarComponent from './components/NavbarComponent.vue'
+import BreadcrumbComponent from './components/BreadcrumbComponent.vue'
+import GalleryComponent from './components/GalleryComponent.vue'
+import SliderComponent from './components/SliderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
+import CopyrightComponent from './components/CopyrightComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavbarComponent,
+    BreadcrumbComponent,
+    GalleryComponent,
+    SliderComponent,
+    FooterComponent,
+    CopyrightComponent
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.description button{
+    width: 50%;
+    background-color: pink;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 0px;
 }
 </style>
