@@ -10,6 +10,7 @@
           :cardTitle="item"
           :cardPrice="arrCardPrice[index]"
           :cardImage="arrCardImages[index]"
+          @changeImage="funChangeImage"
         ></CardComponent>
       </div>
     </div>
@@ -34,6 +35,14 @@ export default {
       arrCardPrice: ["89.300.000", "14.500.000", "22.000.000", "12.000.000"],
       arrCardImages: ["chair-1", "chair-2", "chair-3", "chair-4"],
     };
+  },
+
+  methods: {
+    funChangeImage: function (imgLink, titleLink, priceLink) {
+      this.$emit("changeImage", imgLink, titleLink, priceLink);
+      return { top: 0 };
+      // alert(imgLink + titleLink + priceLink);
+    },
   },
 };
 </script>

@@ -20,14 +20,19 @@
 
     <div class="preview">
       <a class="navbar-brand" href="#">
-        <img src="../assets/chair.png" alt="" style="border-radius: 20px" />
+        <img
+          :src="require('@/assets/' + previewProps + '.png')"
+          :style="stylingProps"
+          alt=""
+          style="border-radius: 20px"
+        />
       </a>
     </div>
 
     <div class="description">
-      <h3>Chair Thatty</h3>
+      <h3>{{ titleProps }}</h3>
 
-      <p>IDR 12.000.000</p>
+      <p>IDR {{ priceProps }}</p>
 
       <button class="font-weight-bold" type="submit">
         <span><img src="../assets/bx-cart-alt.png" alt="" /></span>
@@ -55,6 +60,7 @@
 <script>
 export default {
   name: "GalleryComponent",
+  props: ["previewProps", "stylingProps", "titleProps", "priceProps"],
 };
 </script>
 
