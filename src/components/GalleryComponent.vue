@@ -18,7 +18,7 @@
       </a>
     </div>
 
-    <div class="preview">
+    <div class="preview" id="preview">
       <a class="navbar-brand" href="#">
         <img
           :src="require('@/assets/' + previewProps + '.png')"

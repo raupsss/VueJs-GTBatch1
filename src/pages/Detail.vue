@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import NavbarComponent from "../components/NavbarComponent.vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 import GalleryComponent from "../components/GalleryComponent.vue";
@@ -24,7 +23,6 @@ import FooterComponent from "../components/FooterComponent.vue";
 import CopyrightComponent from "../components/CopyrightComponent.vue";
 
 export default {
-    
   name: "DetailPage",
   data() {
     return {
@@ -48,8 +46,10 @@ export default {
       this.titleFirst = titleLink;
       this.priceFirst = priceLink;
       this.styling = { width: 560 + "px", height: 609 + "px" };
-      return { top: 0 };
-      // alert(imgLink);
+      window.scrollTo({
+        top: 200,
+        behavior: "smooth",
+      });
     },
   },
 };

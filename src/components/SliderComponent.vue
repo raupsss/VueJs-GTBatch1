@@ -39,9 +39,8 @@ export default {
 
   methods: {
     funChangeImage: function (imgLink, titleLink, priceLink) {
+      
       this.$emit("changeImage", imgLink, titleLink, priceLink);
-      return { top: 0 };
-      // alert(imgLink + titleLink + priceLink);
     },
   },
 };
