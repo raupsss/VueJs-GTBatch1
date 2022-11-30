@@ -1,20 +1,18 @@
 <template>
   <div class="container d-flex my-5 p-0">
     <div class="side d-flex flex-column">
-      <a class="navbar-brand" href="#">
-        <img src="../assets/side-1.png" alt="" style="border-radius: 20px" />
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="../assets/side-2.png" alt="" style="border-radius: 20px" />
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="../assets/side-3.png" alt="" style="border-radius: 20px" />
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="../assets/side-1.png" alt="" style="border-radius: 20px" />
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="../assets/side-2.png" alt="" style="border-radius: 20px" />
+      <a
+        class="navbar-brand"
+        href="#"
+        v-for="(item, index) in arrSideProps"
+        :key="index"
+        @click.prevent="$emit('changeSide', arrSideProps)"
+      >
+        <img
+          :src="require('@/assets/' + item + '.png')"
+          alt=""
+          style="border-radius: 20px"
+        />
       </a>
     </div>
 
@@ -62,7 +60,18 @@
 <script>
 export default {
   name: "GalleryComponent",
-  props: ["previewProps", "stylingProps", "titleProps", "priceProps"],
+  data() {
+    return {
+      arrSideProps: ["side-1", "side-2", "side-3", "side-1", "side-2"],
+    };
+  },
+  props: [
+    "previewProps",
+    "stylingProps",
+    "titleProps",
+    "priceProps",
+    "sideProps",
+  ],
 };
 </script>
 

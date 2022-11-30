@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="breadcrumb">
     <nav class="navbar navbar-light bg-light navbar-expand-lg py-4 px-5">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,7 +9,9 @@
           <span class="nav-link">/</span>
         </li>
         <li class="nav-item">
-          <router-link to="/officeRoom" class="nav-link">Office Room</router-link>
+          <router-link to="/officeRoom" class="nav-link"
+            >Office Room</router-link
+          >
         </li>
         <li class="nav-item">
           <span v-show="routeName == '/detail'" class="nav-link">/</span>

@@ -29,7 +29,8 @@ export default {
       preview: "chair",
       titleFirst: "Chair Tatty",
       priceFirst: "12.000.000",
-      styling: null,
+      styling: null
+      
     };
   },
   components: {
@@ -45,11 +46,10 @@ export default {
       this.preview = imgLink;
       this.titleFirst = titleLink;
       this.priceFirst = priceLink;
-      this.styling = { width: 560 + "px", height: 609 + "px" };
-      window.scrollTo({
-        top: 200,
-        behavior: "smooth",
-      });
+      this.styling = { width: 560 + "px", height: 550 + "px" };
+      document
+        .getElementById("breadcrumb")
+        .scrollIntoView({ behavior: "smooth" });
     },
   },
 };
