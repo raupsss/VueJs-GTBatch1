@@ -1,55 +1,23 @@
 <template>
   <div id="app">
-    <NavbarComponent></NavbarComponent>
-    <BreadcrumbComponent></BreadcrumbComponent>
-    <GalleryComponent
-      :previewProps="preview"
-      :titleProps="titleFirst"
-      :priceProps="priceFirst"
-      :stylingProps="styling"
-    ></GalleryComponent>
-    <SliderComponent @changeImage="funChangeImage"></SliderComponent>
-    <FooterComponent></FooterComponent>
-    <CopyrightComponent></CopyrightComponent>
+    <!-- <DetailPage></DetailPage> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NavbarComponent from "./components/NavbarComponent.vue";
-import BreadcrumbComponent from "./components/BreadcrumbComponent.vue";
-import GalleryComponent from "./components/GalleryComponent.vue";
-import SliderComponent from "./components/SliderComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
-import CopyrightComponent from "./components/CopyrightComponent.vue";
+// import DetailPage from "./pages/Detail.vue";
 
 export default {
   name: "App",
   data() {
-    return {
-      preview: "chair",
-      titleFirst: "Chair Tatty",
-      priceFirst: "12.000.000",
-      styling: null,
-    };
+    return {};
   },
   components: {
-    NavbarComponent,
-    BreadcrumbComponent,
-    GalleryComponent,
-    SliderComponent,
-    FooterComponent,
-    CopyrightComponent,
+    // DetailPage,
   },
-  methods: {
-    funChangeImage(imgLink, titleLink, priceLink) {
-      this.preview = imgLink;
-      this.titleFirst = titleLink;
-      this.priceFirst = priceLink;
-      this.styling = { width: 560 + "px", height: 609 + "px" };
-      return { top: 0 };
-      // alert(imgLink);
-    },
-  },
+
+  methods: {},
 };
 </script>
 
@@ -57,14 +25,5 @@ export default {
 * {
   margin: 0;
   padding: 0;
-}
-
-.description button {
-  width: 50%;
-  background-color: pink;
-  cursor: pointer;
-  border: none;
-  border-radius: 20px;
-  padding: 5px 0px;
 }
 </style>

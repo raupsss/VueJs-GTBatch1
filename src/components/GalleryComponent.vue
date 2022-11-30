@@ -34,10 +34,12 @@
 
       <p>IDR {{ priceProps }}</p>
 
-      <button class="font-weight-bold" type="submit">
-        <span><img src="../assets/bx-cart-alt.png" alt="" /></span>
-        Add to Chart
-      </button>
+      <router-link to="/shipping">
+        <button class="font-weight-bold" type="submit">
+          <span><img src="../assets/bx-cart-alt.png" alt="" /></span>
+          Add to Chart
+        </button>
+      </router-link>
 
       <hr />
 
