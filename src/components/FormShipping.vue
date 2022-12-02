@@ -16,6 +16,7 @@
       </div>
       <div class="col-6 p-5 rounded">
         <form
+          v-show="!success"
           @submit.prevent="inputShipping"
           class="m-0 px-5 pb-5"
           id="formShipping"
@@ -108,9 +109,10 @@
             class="btn"
             style="background-color: pink; color: black; border: none"
           >
-            Sign in
+            {{ buttonValue }}
           </button>
         </form>
+        <SuccessForm v-show="success"></SuccessForm>
       </div>
     </div>
   </div>
@@ -118,6 +120,7 @@
 
 <script>
 import shippingService from "../services/shippingService.js";
+import SuccessForm from "./SuccessForm.vue";
 
 export default {
   name: "FormShipping",
@@ -133,7 +136,13 @@ export default {
         postal_code: null,
         address: null,
       },
+      success: false,
+      buttonValue: "Submit",
     };
+  },
+
+  components: {
+    SuccessForm,
   },
 
   methods: {
@@ -143,14 +152,39 @@ export default {
 
     inputShipping() {
       let data = this.shippingData;
-      shippingService
-        .create(data)
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      if (this.buttonValue === "Submit") {
+        shippingService
+          .create(data)
+          .then((response) => {
+            console.log(response.data);
+            this.success = true;
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } else {
+        shippingService
+          .updateShipping(data.id, data)
+          .then((response) => {
+            console.log(response.data);
+            this.success = true;
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    },
+  },
+
+  props: ["shippingDataProps"],
+
+  watch: {
+    shippingDataProps(newValue, oldValue) {
+      this.shippingData = newValue;
+      console.log(this.shippingData);
+      this.buttonValue = "Update";
+      console.log("OldValue = " + oldValue);
+      console.log("NewValue = " + newValue);
     },
   },
 };

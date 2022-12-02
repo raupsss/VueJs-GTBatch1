@@ -14,16 +14,12 @@
       </a>
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Showcase</a>
+          <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Catalog</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Delivery</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Rewards</a>
+          <router-link to="/shippingList" class="nav-link"
+            >Shipping List</router-link
+          >
         </li>
         <li>
           <a class="navbar-brand" href="#">

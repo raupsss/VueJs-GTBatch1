@@ -9,6 +9,16 @@ class shippingService {
         return http.get("/shipping/getAll");
 
     }
+
+    deleteShipping(id) {
+        return http.delete(`/shipping/delete/${id}`)
+    }
+
+    updateShipping(id, data) {
+        return http.put(`/shipping/update/${id}`, data)
+    }
+
+
 }
 
 export default new shippingService();
