@@ -9,14 +9,17 @@ export default [
     },
     {
         path: "/detail",
+        name: "detail",
         component: Detail,
     },
     {
         path: "/shippingList",
+        name: "shippingList",
         component: ShippingList,
     },
     {
         path: "/shipping",
+        name: "shipping",
         component: Shipping
     }
 ]

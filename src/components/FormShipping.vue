@@ -16,7 +16,7 @@
       </div>
       <div class="col-6 p-5 rounded">
         <form
-          v-show="!success"
+          v-show="!success && !successSubmit"
           @submit.prevent="inputShipping"
           class="m-0 px-5 pb-5"
           id="formShipping"
@@ -113,6 +113,7 @@
           </button>
         </form>
         <SuccessForm v-show="success"></SuccessForm>
+        <SuccessFormSubmit v-show="successSubmit"></SuccessFormSubmit>
       </div>
     </div>
   </div>
@@ -121,6 +122,7 @@
 <script>
 import shippingService from "../services/shippingService.js";
 import SuccessForm from "./SuccessForm.vue";
+import SuccessFormSubmit from "./SuccessFormSubmit.vue";
 
 export default {
   name: "FormShipping",
@@ -137,12 +139,14 @@ export default {
         address: null,
       },
       success: false,
+      successSubmit: false,
       buttonValue: "Submit",
     };
   },
 
   components: {
     SuccessForm,
+    SuccessFormSubmit,
   },
 
   methods: {
@@ -157,7 +161,7 @@ export default {
           .create(data)
           .then((response) => {
             console.log(response.data);
-            this.success = true;
+            this.successSubmit = true;
           })
           .catch((e) => {
             console.log(e);
@@ -179,12 +183,10 @@ export default {
   props: ["shippingDataProps"],
 
   watch: {
-    shippingDataProps(newValue, oldValue) {
+    shippingDataProps(newValue) {
       this.shippingData = newValue;
       console.log(this.shippingData);
       this.buttonValue = "Update";
-      console.log("OldValue = " + oldValue);
-      console.log("NewValue = " + newValue);
     },
   },
 };
